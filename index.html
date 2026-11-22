@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, Caca! • Pastel Scrapbook</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Fredoka', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            cream: '#FFF9F3',
+            blush: '#FFE3EC',
+            rose: '#F4729C',
+            gold: '#EAB308',
+            cocoa: '#47312E',
+            berry: '#D94E7B',
+            lavender: '#ECE5FF',
+            mint: '#DDF7EC',
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      --bg-cream: #FFF9F3;
+      --bg-blush: #FFE3EC;
+      --ink-cocoa: #47312E;
+      --accent-rose: #D94E7B;
+      --accent-gold: #EAB308;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background:
+        radial-gradient(circle at 12% 14%, rgba(255, 227, 236, 0.85) 0%, transparent 42%),
+        radial-gradient(circle at 88% 12%, rgba(236, 229, 255, 0.8) 0%, transparent 45%),
+        radial-gradient(circle at 85% 86%, rgba(221, 247, 236, 0.72) 0%, transparent 45%),
+        radial-gradient(circle at 16% 88%, rgba(254, 243, 199, 0.72) 0%, transparent 45%),
+        var(--bg-cream);
+      color: var(--ink-cocoa);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(3deg); }
+    }
+
+    .floating-blob {
+      animation: floatSlow 7.5s ease-in-out infinite;
+    }
+
+    .scrapbook-card {
+      background: rgba(255, 255, 255, 0.84);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 2px solid rgba(255, 255, 255, 0.96);
+      box-shadow:
+        0 16px 36px -12px rgba(217, 78, 123, 0.14),
+        0 4px 12px -2px rgba(71, 49, 46, 0.06);
+      border-radius: 28px;
+      transition: transform 0.24s ease, box-shadow 0.24s ease;
+    }
+
+    .scrapbook-card:hover {
+      box-shadow:
+        0 20px 42px -12px rgba(217, 78, 123, 0.18),
+        0 6px 16px -4px rgba(71, 49, 46, 0.08);
+    }
+
+    .washi-tape {
+      background: linear-gradient(90deg, rgba(255, 194, 214, 0.85), rgba(254, 240, 138, 0.8));
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(71, 49, 46, 0.08);
+    }
+
+    .cake-stage {
+      position: relative;
+      width: 100%;
+      max-width: 370px;
+      margin: 0 auto;
+      padding-top: 94px;
+      user-select: none;
+    }
+
+    .cake-plate {
+      width: 94%;
+      height: 22px;
+      margin: -4px auto 0;
+      background: linear-gradient(180deg, #FFFFFF 0%, #F6E6EC 100%);
+      border-radius: 999px;
+      box-shadow:
+        0 8px 20px rgba(71, 49, 46, 0.12),
+        inset 0 -3px 6px rgba(217, 78, 123, 0.14);
+      border: 2px solid rgba(255, 255, 255, 0.92);
+    }
+
+    .cake-tier-bottom {
+      position: relative;
+      width: 82%;
+      height: 82px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, #FFC4D8 0%, #F59AB9 100%);
+      border-radius: 20px 20px 14px 14px;
+      box-shadow: inset 0 -8px 0 rgba(217, 78, 123, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.8);
+    }
+
+    .cake-tier-top {
+      position: relative;
+      width: 64%;
+      height: 62px;
+      margin: 0 auto -10px;
+      z-index: 2;
+      background: linear-gradient(180deg, #FFF7EC 0%, #FFE4C2 100%);
+      border-radius: 22px 22px 14px 14px;
+      box-shadow:
+        0 6px 14px rgba(71, 49, 46, 0.08),
+        inset 0 -6px 0 rgba(234, 179, 8, 0.22);
+      border: 2px solid rgba(255, 255, 255, 0.88);
+    }
+
+    .icing-drips {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 22px;
+      display: flex;
+      justify-content: space-around;
+      padding: 0 10px;
+      pointer-events: none;
+    }
+
+    .drip {
+      width: 16px;
+      height: 24px;
+      background: #FFFDF9;
+      border-radius: 0 0 999px 999px;
+      box-shadow: 0 3px 6px rgba(71, 49, 46, 0.07);
+    }
+
+    .drip:nth-child(even) {
+      height: 17px;
+      background: #FFE8F0;
+    }
+
+    .sprinkle {
+      position: absolute;
+      width: 8px;
+      height: 4px;
+      border-radius: 999px;
+      opacity: 0.88;
+    }
+
+    .candles-row {
+      position: absolute;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 26px;
+      z-index: 10;
+    }
+
+    .candle-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .flame-box {
+      position: relative;
+      width: 24px;
+      height: 36px;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      transform-origin: bottom center;
+      transition: transform 0.22s ease-out, opacity 0.35s ease;
+    }
+
+    .flame-box.blown-out {
+      opacity: 0;
+      transform: scale(0.2) translateY(-10px);
+      pointer-events: none;
+    }
+
+    .flame-box.bending {
+      transform: skewX(26deg) rotate(18deg) scaleX(1.18) scaleY(0.86);
+    }
+
+    @keyframes flickerOuter {
+      0%, 100% {
+        transform: scale(1, 1) rotate(-2deg);
+        border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+      }
+      25% {
+        transform: scale(1.06, 0.95) rotate(3deg);
+        border-radius: 48% 52% 46% 54% / 70% 60% 40% 30%;
+      }
+      50% {
+        transform: scale(0.95, 1.07) rotate(-3deg);
+        border-radius: 53% 47% 52% 48% / 62% 68% 32% 38%;
+      }
+      75% {
+        transform: scale(1.04, 0.98) rotate(2deg);
+        border-radius: 47% 53% 49% 51% / 66% 64% 36% 34%;
+      }
+    }
+
+    .flame-outer {
+      position: absolute;
+      bottom: 0;
+      width: 18px;
+      height: 28px;
+      background: radial-gradient(circle at 50% 75%, #FFE66D 15%, #FF9F1C 58%, #FF595E 100%);
+      box-shadow:
+        0 0 14px rgba(255, 177, 50, 0.9),
+        0 0 28px rgba(255, 110, 90, 0.55);
+      animation: flickerOuter 0.95s ease-in-out infinite;
+    }
+
+    .flame-inner {
+      position: relative;
+      z-index: 2;
+      width: 8px;
+      height: 14px;
+      margin-bottom: 2px;
+      background: radial-gradient(circle at 50% 70%, #FFFFFF 35%, #FFF3B0 85%, transparent 100%);
+      border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+    }
+
+    .smoke-puff {
+      position: absolute;
+      top: -12px;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(175, 168, 182, 0.68);
+      filter: blur(2px);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    @keyframes smokeRise1 {
+      0% { opacity: 0; transform: translate(0, 4px) scale(0.5); }
+      25% { opacity: 0.72; }
+      100% { opacity: 0; transform: translate(14px, -44px) scale(2.2); }
+    }
+
+    @keyframes smokeRise2 {
+      0% { opacity: 0; transform: translate(0, 6px) scale(0.4); }
+      30% { opacity: 0.58; }
+      100% { opacity: 0; transform: translate(24px, -58px) scale(2.7); }
+    }
+
+    .smoke-active .smoke-puff:nth-child(1) {
+      animation: smokeRise1 1.5s ease-out forwards;
+    }
+
+    .smoke-active .smoke-puff:nth-child(2) {
+      animation: smokeRise2 1.8s ease-out 0.12s forwards;
+    }
+
+    .candle-stick {
+      width: 14px;
+      height: 46px;
+      border-radius: 6px;
+      position: relative;
+      box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(71, 49, 46, 0.12);
+    }
+
+    .candle-stick.striped-pink {
+      background: repeating-linear-gradient(
+        -45deg,
+        #FF7EA6,
+        #FF7EA6 6px,
+        #FFFDF9 6px,
+        #FFFDF9 12px
+      );
+    }
+
+    .candle-stick.striped-gold {
+      background: repeating-linear-gradient(
+        -45deg,
+        #FACC15,
+        #FACC15 6px,
+        #FFFDF9 6px,
+        #FFFDF9 12px
+      );
+    }
+
+    .candle-stick.striped-lavender {
+      background: repeating-linear-gradient(
+        -45deg,
+        #B8A9FF,
+        #B8A9FF 6px,
+        #FFFDF9 6px,
+        #FFFDF9 12px
+      );
+    }
+
+    .btn-rose {
+      background: linear-gradient(135deg, #F4729C 0%, #D94E7B 100%);
+      color: #FFFFFF;
+      box-shadow: 0 8px 20px -4px rgba(217, 78, 123, 0.45);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    }
+
+    .btn-rose:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -4px rgba(217, 78, 123, 0.55);
+      filter: brightness(1.03);
+    }
+
+    .btn-rose:active:not(:disabled) {
+      transform: translateY(1px) scale(0.98);
+    }
+
+    .btn-soft {
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--ink-cocoa);
+      border: 2px solid #F5D5E0;
+      transition: transform 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .btn-soft:hover:not(:disabled) {
+      transform: translateY(-2px);
+      background: #FFF0F5;
+      border-color: #D94E7B;
+    }
+
+    .btn-soft:active:not(:disabled) {
+      transform: translateY(1px) scale(0.98);
+    }
+
+    #confettiCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 45;
+    }
+
+    input[type="range"].pastel-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 7px;
+      border-radius: 999px;
+      background: #F4DCE5;
+      outline: none;
+    }
+
+    input[type="range"].pastel-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #D94E7B;
+      border: 3px solid #FFFFFF;
+      box-shadow: 0 2px 6px rgba(217, 78, 123, 0.45);
+      cursor: pointer;
+    }
+
+    input[type="range"].pastel-slider::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #D94E7B;
+      border: 3px solid #FFFFFF;
+      box-shadow: 0 2px 6px rgba(217, 78, 123, 0.45);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-blush selection:text-cocoa">
+  <!-- Full-viewport Confetti Canvas -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- Soft Floating Pastel Scrapbook Orbs -->
+  <div aria-hidden="true" class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="floating-blob absolute -top-12 -left-12 w-56 h-56 rounded-full bg-blush/65 blur-xl"></div>
+    <div class="floating-blob absolute top-28 -right-14 w-64 h-64 rounded-full bg-lavender/65 blur-xl" style="animation-delay: -2s;"></div>
+    <div class="floating-blob absolute bottom-16 left-6 w-56 h-56 rounded-full bg-mint/60 blur-xl" style="animation-delay: -4s;"></div>
+    <div class="floating-blob absolute bottom-10 right-10 w-48 h-48 rounded-full bg-amber-100/75 blur-xl" style="animation-delay: -1.5s;"></div>
+  </div>
+
+  <main class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-7">
+
+    <!-- =====================================================================
+         1. HERO HEADER FOR CACA
+         ===================================================================== -->
+    <header class="scrapbook-card p-6 sm:p-9 text-center relative overflow-hidden">
+      <div class="washi-tape w-24 h-4 mx-auto mb-3"></div>
+      <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blush/85 text-berry text-xs font-bold mb-3">
+        Happy Birthday Celebration • Special Edition
+      </span>
+      <h1 class="font-display text-3xl sm:text-5xl font-bold text-cocoa tracking-tight">
+        Happy Birthday, <span class="text-berry">Caca</span>!
+      </h1>
+      <p class="mt-2.5 text-sm sm:text-base text-cocoa/80 max-w-2xl mx-auto leading-relaxed">
+        Putar alunan piano ulang tahun di bawah, ucapkan harapan terbaikmu, lalu tiup lilinnya dengan mikrofon atau ketuk langsung apinya.
+      </p>
+    </header>
+
+    <!-- =====================================================================
+         2. YOUTUBE PIANO PLAYER ("HAPPY BIRTHDAY TO YOU - PIANO VERSION")
+         ===================================================================== -->
+    <section aria-label="Pemutar Musik Piano Ulang Tahun" class="scrapbook-card p-5 sm:p-7">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+        <div class="flex items-center gap-4">
+          <div
+            id="musicDisc"
+            class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blush via-amber-100 to-lavender border-2 border-white shadow-sm flex items-center justify-center text-berry shrink-0"
+          >
+            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 18V5l12-2v13"/>
+              <circle cx="6" cy="18" r="3"/>
+              <circle cx="18" cy="16" r="3"/>
+            </svg>
+          </div>
+          <div class="space-y-0.5">
+            <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-berry">
+              Birthday Piano Soundtrack
+            </span>
+            <h2 class="font-display text-lg sm:text-xl font-bold text-cocoa">
+              Happy Birthday To You — Piano Version
+            </h2>
+            <p id="ytStatusHint" class="text-xs text-cocoa/70">
+              Putar alunan piano ulang tahun untuk menemani momen tiup lilin Caca.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3">
+          <button
+            id="ytPlayPauseBtn"
+            type="button"
+            class="btn-rose px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold inline-flex items-center gap-2 cursor-pointer"
+          >
+            <svg id="ytPlayIcon" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+            <svg id="ytPauseIcon" class="hidden w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <rect x="6" y="4" width="4" height="16"/>
+              <rect x="14" y="4" width="4" height="16"/>
+            </svg>
+            <span id="ytPlayPauseLabel">Play Piano</span>
+          </button>
+
+          <button
+            id="ytMuteBtn"
+            type="button"
+            class="btn-soft px-3.5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold inline-flex items-center gap-1.5 cursor-pointer"
+          >
+            <svg id="ytVolOnIcon" class="w-4 h-4 text-berry" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+            </svg>
+            <svg id="ytVolOffIcon" class="hidden w-4 h-4 text-berry" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+              <line x1="23" y1="9" x2="17" y2="15"/>
+              <line x1="17" y1="9" x2="23" y2="15"/>
+            </svg>
+            <span id="ytMuteLabel">Mute</span>
+          </button>
+
+          <div class="flex items-center gap-2 bg-white/85 border border-pink-100 rounded-2xl px-3 py-2">
+            <label for="ytVolumeSlider" class="text-[11px] font-bold text-cocoa/70">Vol</label>
+            <input
+              id="ytVolumeSlider"
+              type="range"
+              min="0"
+              max="100"
+              value="75"
+              class="pastel-slider w-20 sm:w-24"
+            />
+            <span id="ytVolumeValueLabel" class="text-[11px] font-bold text-berry w-8 text-right">75%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         3. INTERACTIVE BIRTHDAY CAKE & CANDLE BLOWING SECTION
+         ===================================================================== -->
+    <section aria-label="Kue Ulang Tahun Interaktif Caca" class="scrapbook-card p-6 sm:p-8 relative overflow-hidden">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-berry">Make A Wish &amp; Blow</span>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-cocoa">Tiup Lilin Ulang Tahun Caca</h2>
+        </div>
+        <span
+          id="candleStatusBadge"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100/90 border border-amber-300 text-amber-900 text-xs font-semibold"
+        >
+          <span id="candleStatusText">3 Lilin Menyala</span>
+        </span>
+      </div>
+
+      <!-- Interactive Cake Stage -->
+      <div class="cake-stage my-2">
+        <div class="candles-row" role="group" aria-label="Tiga lilin ulang tahun">
+          <!-- Candle 1 -->
+          <div class="candle-wrapper" role="button" tabindex="0" aria-label="Lilin pertama">
+            <div class="smoke-puff"></div>
+            <div class="smoke-puff"></div>
+            <div class="flame-box">
+              <div class="flame-outer"></div>
+              <div class="flame-inner"></div>
+            </div>
+            <div class="candle-stick striped-pink"></div>
+          </div>
+
+          <!-- Candle 2 -->
+          <div class="candle-wrapper" role="button" tabindex="0" aria-label="Lilin kedua">
+            <div class="smoke-puff"></div>
+            <div class="smoke-puff"></div>
+            <div class="flame-box">
+              <div class="flame-outer"></div>
+              <div class="flame-inner"></div>
+            </div>
+            <div class="candle-stick striped-gold"></div>
+          </div>
+
+          <!-- Candle 3 -->
+          <div class="candle-wrapper" role="button" tabindex="0" aria-label="Lilin ketiga">
+            <div class="smoke-puff"></div>
+            <div class="smoke-puff"></div>
+            <div class="flame-box">
+              <div class="flame-outer"></div>
+              <div class="flame-inner"></div>
+            </div>
+            <div class="candle-stick striped-lavender"></div>
+          </div>
+        </div>
+
+        <!-- Top Cake Tier -->
+        <div class="cake-tier-top">
+          <div class="icing-drips" aria-hidden="true">
+            <span class="drip"></span>
+            <span class="drip"></span>
+            <span class="drip"></span>
+            <span class="drip"></span>
+            <span class="drip"></span>
+            <span class="drip"></span>
+          </div>
+          <span class="sprinkle bg-rose" style="top: 28px; left: 22%; transform: rotate(22deg);"></span>
+          <span class="sprinkle bg-gold" style="top: 38px; left: 48%; transform: rotate(-18deg);"></span>
+          <span class="sprinkle bg-berry" style="top: 26px; right: 20%; transform: rotate(35deg);"></span>
+        </div>
+
+        <!-- Bottom Cake Tier -->
+        <div class="cake-tier-bottom flex items-center justify-center">
+          <div class="icing-drips" aria-hidden="true">
+            <span class="drip"></span>
+            <span class="drip"></span>
+            <span class="drip"></span>
+            <span class="drip"></span>
+            <span class="drip"></span>
+            <span class="drip"></span>
+            <span class="drip"></span>
+          </div>
+          <span class="mt-3 px-4 py-1 rounded-full bg-white/90 text-berry font-display font-bold text-sm shadow-sm">
+            Happy Birthday, Caca
+          </span>
+        </div>
+
+        <!-- Cake Plate -->
+        <div class="cake-plate"></div>
+      </div>
+
+      <!-- Celebration Banner (Shown When All Candles Blown Out) -->
+      <div
+        id="wishCelebrationBanner"
+        class="hidden mt-5 p-4 rounded-2xl bg-gradient-to-r from-blush/90 via-amber-50 to-lavender/90 border border-pink-200 text-center space-y-1"
+      >
+        <p class="font-display text-lg sm:text-xl font-bold text-berry">
+          Yeay! Selamat Ulang Tahun, Caca!
+        </p>
+        <p class="text-xs sm:text-sm text-cocoa/80">
+          Semoga semua harapan baik yang Caca panjatkan hari ini segera terwujud satu per satu.
+        </p>
+      </div>
+
+      <!-- Candle Action Buttons -->
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+        <button
+          id="blowBtn"
+          type="button"
+          class="btn-rose px-5 py-3 rounded-2xl text-xs sm:text-sm font-bold inline-flex items-center gap-2 cursor-pointer"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/>
+            <path d="M9.6 4.6A2 2 0 1 1 11 8H2"/>
+            <path d="M12.6 19.4A2 2 0 1 0 14 16H2"/>
+          </svg>
+          <span>Tiup Lilin</span>
+        </button>
+
+        <button
+          id="micToggleBtn"
+          type="button"
+          class="btn-soft px-5 py-3 rounded-2xl text-xs sm:text-sm font-bold inline-flex items-center gap-2 cursor-pointer"
+        >
+          <span id="micDot" class="w-2.5 h-2.5 rounded-full bg-berry/50"></span>
+          <span id="micBtnText">Aktifkan Tiup Mic</span>
+        </button>
+
+        <button
+          id="relightBtn"
+          type="button"
+          class="btn-soft px-5 py-3 rounded-2xl text-xs sm:text-sm font-bold inline-flex items-center gap-2 cursor-pointer"
+        >
+          <svg class="w-4 h-4 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+          </svg>
+          <span>Nyalakan Lagi</span>
+        </button>
+      </div>
+
+      <!-- Microphone Blow Meter -->
+      <div class="mt-5 max-w-md mx-auto bg-white/80 border border-pink-100 rounded-2xl p-3.5 space-y-2">
+        <div class="flex items-center justify-between text-xs font-semibold text-cocoa/75">
+          <span id="micStatusLabel">Blow Meter: Siap mendeteksi tiupan saat mikrofon diaktifkan</span>
+          <span id="micLevelPercent" class="font-bold text-berry">0%</span>
+        </div>
+        <div class="w-full h-2.5 rounded-full bg-blush/70 overflow-hidden">
+          <div
+            id="micLevelBar"
+            class="h-full w-0 rounded-full bg-gradient-to-r from-rose to-berry transition-all duration-75"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Feedback Notice -->
+      <div
+        id="feedbackBox"
+        role="status"
+        class="hidden mt-4 max-w-lg mx-auto px-4 py-2.5 rounded-2xl border border-pink-200 bg-white/90 text-xs sm:text-sm text-center text-cocoa font-medium"
+      ></div>
+    </section>
+
+    <!-- =====================================================================
+         4. SINGLE BIRTHDAY WISH & ONE CARMEN H2H PORTRAIT PHOTO FOR CACA
+         ===================================================================== -->
+    <section aria-label="Ucapan Ulang Tahun Caca" class="scrapbook-card p-6 sm:p-8 relative overflow-hidden">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-7">
+        <div class="space-y-4 max-w-2xl w-full">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blush/85 text-berry text-xs font-bold">
+            <span>Special Birthday Letter for Caca</span>
+          </div>
+
+          <h2 id="wishCardTitle" class="font-display text-2xl sm:text-3xl font-bold text-cocoa">
+            Untuk Caca, Si Paling Ceria &amp; Hangat
+          </h2>
+
+          <p id="wishCardExcerpt" class="text-sm sm:text-base leading-relaxed text-cocoa/85 whitespace-pre-line">
+            Selamat ulang tahun, Caca! Kehadiran dan senyum hangatmu selalu bikin suasana di sekitar langsung hidup dan nyaman. Semoga di usia yang baru ini Caca selalu sehat, bahagia, dan dikelilingi orang-orang yang tulus menyayangimu.
+          </p>
+
+          <div id="wishHighlightsRow" class="flex flex-wrap gap-2 pt-1"></div>
+
+          <div class="pt-2 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-blush flex items-center justify-center text-berry shadow-inner shrink-0">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-cocoa/60 font-medium">With warmest birthday hugs,</p>
+                <p id="wishSignatureText" class="font-display font-bold text-base text-cocoa">Your Besties &amp; Circle • Special for Caca</p>
+              </div>
+            </div>
+
+            <button
+              id="openFullWishBtn"
+              type="button"
+              class="btn-soft px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold inline-flex items-center gap-2 cursor-pointer"
+            >
+              <svg class="w-4 h-4 text-berry" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+              <span>Buka Wish Lengkap</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Single Carmen H2H Portrait Photo Card for Caca -->
+        <aside class="shrink-0 w-full sm:w-72 lg:w-64 mx-auto lg:mx-0 bg-white/95 border-2 border-pink-100 rounded-3xl p-3.5 text-center space-y-2.5 shadow-sm">
+          <div class="washi-tape w-20 h-4 mx-auto -mt-1"></div>
+          <div class="relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br from-blush via-amber-50 to-lavender border border-pink-200/70">
+            <img
+              id="cacaPortraitImg"
+              src="https://commons.wikimedia.org/wiki/Special:FilePath/Carmen_di_Musinsa_Beauty_Festa_Pop-Up_Store_2025.jpg"
+              alt="Carmen Hearts2Hearts Portrait untuk Caca"
+              class="w-full h-full object-cover object-top"
+              loading="lazy"
+            />
+            <div id="cacaPortraitFallback" class="hidden absolute inset-0 flex flex-col items-center justify-center p-4 text-center bg-gradient-to-br from-blush/90 via-cream to-lavender/90">
+              <div class="w-16 h-16 rounded-full bg-white/90 border-2 border-pink-200 flex items-center justify-center text-berry shadow-sm mb-2">
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2l2.4 7.4h7.6l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z"/>
+                </svg>
+              </div>
+              <p class="font-display font-bold text-base text-cocoa">Caca</p>
+              <p class="text-[11px] font-semibold text-berry">Hearts2Hearts Edition</p>
+            </div>
+          </div>
+          <div class="pt-0.5">
+            <p class="font-display font-bold text-base text-cocoa">Caca’s Birthday Frame</p>
+            <p class="text-xs text-cocoa/70">Sweet pastel keepsake</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         5. FOOTER
+         ===================================================================== -->
+    <footer class="text-center pt-2 pb-6 text-xs sm:text-sm text-cocoa/70 space-y-1">
+      <p class="font-medium">
+        Made with Love for <span class="font-bold text-cocoa">Caca</span> • Pastel Scrapbook Birthday Edition
+      </p>
+      <p class="text-xs text-cocoa/55">
+        Celebrating Caca’s sweetness, bright smile, and unforgettable birthday moments
+      </p>
+    </footer>
+  </main>
+
+  <!-- =====================================================================
+       MODAL: FULL WISH HIGHLIGHT VIEW ("Buka Wish Lengkap") — SCROLLABLE
+       ===================================================================== -->
+  <div
+    id="fullWishModal"
+    class="hidden fixed inset-0 z-50 bg-cocoa/45 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalWishHeading"
+  >
+    <div class="scrapbook-card max-w-xl w-full max-h-[85vh] flex flex-col overflow-hidden relative">
+      <!-- Fixed Modal Header -->
+      <div class="flex items-center justify-between gap-4 px-6 pt-6 pb-3 sm:px-8 sm:pt-7 border-b border-pink-100/80 shrink-0">
+        <span class="px-3 py-1 rounded-full bg-blush text-berry text-xs font-bold">
+          Highlight Wish • Caca’s Birthday
+        </span>
+        <button
+          id="closeFullWishBtn"
+          type="button"
+          class="btn-soft w-9 h-9 rounded-full flex items-center justify-center text-cocoa cursor-pointer shrink-0"
+          aria-label="Tutup jendela wish lengkap"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Scrollable Modal Body -->
+      <div
+        id="modalWishScrollArea"
+        class="flex-1 min-h-0 overflow-y-auto overscroll-contain px-6 py-4 sm:px-8 space-y-4"
+        style="-webkit-overflow-scrolling: touch;"
+      >
+        <h3 id="modalWishHeading" class="font-display text-2xl sm:text-3xl font-bold text-cocoa"></h3>
+        <p id="modalWishBody" class="text-sm sm:text-base leading-relaxed text-cocoa/85 whitespace-pre-line"></p>
+        <div id="modalWishBadges" class="flex flex-wrap gap-2 pt-1"></div>
+      </div>
+
+      <!-- Fixed Modal Footer -->
+      <div class="px-6 py-4 sm:px-8 border-t border-pink-100 bg-white/60 flex items-center justify-between gap-3 shrink-0">
+        <span id="modalWishAuthor" class="text-xs sm:text-sm font-bold text-berry"></span>
+        <button
+          id="doneFullWishBtn"
+          type="button"
+          class="btn-rose px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold cursor-pointer shrink-0"
+        >
+          Selesai Membaca
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       APPLICATION JAVASCRIPT: YOUTUBE PIANO, CANDLES, MIC BLOW & WISHES
+       ===================================================================== -->
+  <script>
+    const CACA_BIRTHDAY_DATA = {
+      blowThreshold: 0.16,
+      bendDurationMs: 260,
+      youtubeShareUrl: 'https://youtu.be/wqdV1ybjzOE?si=dvtWYnXpVGeahZj6',
+      youtubePianoVideoId: 'wqdV1ybjzOE',
+      pinterestPinUrl: 'https://pin.it/6XraDtxqI',
+      carmenPhotoUrls: [
+        'https://commons.wikimedia.org/wiki/Special:FilePath/Carmen_di_Musinsa_Beauty_Festa_Pop-Up_Store_2025.jpg?width=756'
+      ],
+
+      wish: {
+        title: 'Untuk Caca, Si Paling Ceria & Hangat',
+        excerpt:
+          'Selamat ulang tahun, Caca! Kehadiran dan senyum hangatmu selalu bikin suasana di sekitar langsung hidup dan nyaman. Semoga di usia yang baru ini Caca selalu sehat, bahagia, dan dikelilingi orang-orang yang tulus menyayangimu.',
+        fullLetter:
+          'Selamat ulang tahun, Caca! Kehadiran dan senyum hangatmu selalu bikin suasana di sekitar langsung hidup dan nyaman.\n\nTerima kasih sudah selalu membawa energi positif, tawa manis, dan cerita seru setiap hari. Di setiap momen kebersamaan kita, Caca selalu berhasil bikin siapa pun di dekatmu merasa dihargai dan didengarkan.\n\nSemoga di langkah barumu tahun ini, Caca selalu diberi kesehatan yang prima, ketenangan hati, kelancaran di setiap urusan, serta semua hal indah yang selama ini kamu semogakan diam-diam.\n\nTeruslah bersinar dengan caramu sendiri yang tulus dan hangat. Selamat bertambah usia, Caca!',
+        highlights: ['Sweetest Soul', 'Bright Energy', 'Always Healthy & Happy'],
+        signature: 'Your Circle & Besties • Warm Birthday Love for Caca'
+      }
+    };
+
+    const state = {
+      candlesLit: [true, true, true],
+      isBlowingAnimation: false,
+      photoAttemptIndex: 0,
+      micActive: false,
+      audioCtx: null,
+      analyser: null,
+      micStream: null,
+      micRafId: null,
+      confettiParticles: [],
+      confettiRafId: null,
+      pianoCtx: null,
+      pianoGain: null,
+      pianoTimerId: null,
+      pianoNoteIdx: 0,
+      pianoMuted: false,
+      ytEmbedVisible: false,
+      ytPlaying: false
+    };
+
+    const dom = {
+      candleWrappers: Array.from(document.querySelectorAll('.candle-wrapper')),
+      flameBoxes: Array.from(document.querySelectorAll('.flame-box')),
+      candleStatusText: document.getElementById('candleStatusText'),
+      candleStatusBadge: document.getElementById('candleStatusBadge'),
+      blowBtn: document.getElementById('blowBtn'),
+      relightBtn: document.getElementById('relightBtn'),
+      micToggleBtn: document.getElementById('micToggleBtn'),
+      micDot: document.getElementById('micDot'),
+      micBtnText: document.getElementById('micBtnText'),
+      micStatusLabel: document.getElementById('micStatusLabel'),
+      micLevelBar: document.getElementById('micLevelBar'),
+      micLevelPercent: document.getElementById('micLevelPercent'),
+      wishCelebrationBanner: document.getElementById('wishCelebrationBanner'),
+      feedbackBox: document.getElementById('feedbackBox'),
+      confettiCanvas: document.getElementById('confettiCanvas'),
+      // Single Wish & Portrait
+      wishCardTitle: document.getElementById('wishCardTitle'),
+      wishCardExcerpt: document.getElementById('wishCardExcerpt'),
+      wishHighlightsRow: document.getElementById('wishHighlightsRow'),
+      wishSignatureText: document.getElementById('wishSignatureText'),
+      cacaPortraitImg: document.getElementById('cacaPortraitImg'),
+      cacaPortraitFallback: document.getElementById('cacaPortraitFallback'),
+      openFullWishBtn: document.getElementById('openFullWishBtn'),
+      fullWishModal: document.getElementById('fullWishModal'),
+      modalWishScrollArea: document.getElementById('modalWishScrollArea'),
+      closeFullWishBtn: document.getElementById('closeFullWishBtn'),
+      doneFullWishBtn: document.getElementById('doneFullWishBtn'),
+      modalWishHeading: document.getElementById('modalWishHeading'),
+      modalWishBody: document.getElementById('modalWishBody'),
+      modalWishBadges: document.getElementById('modalWishBadges'),
+      modalWishAuthor: document.getElementById('modalWishAuthor'),
+
+      // YouTube Piano Player
+      ytPlayPauseBtn: document.getElementById('ytPlayPauseBtn'),
+      ytPlayIcon: document.getElementById('ytPlayIcon'),
+      ytPauseIcon: document.getElementById('ytPauseIcon'),
+      ytPlayPauseLabel: document.getElementById('ytPlayPauseLabel'),
+      ytMuteBtn: document.getElementById('ytMuteBtn'),
+      ytVolOnIcon: document.getElementById('ytVolOnIcon'),
+      ytVolOffIcon: document.getElementById('ytVolOffIcon'),
+      ytMuteLabel: document.getElementById('ytMuteLabel'),
+      ytVolumeSlider: document.getElementById('ytVolumeSlider'),
+      ytVolumeValueLabel: document.getElementById('ytVolumeValueLabel'),
+      ytStatusHint: document.getElementById('ytStatusHint'),
+      musicDisc: document.getElementById('musicDisc'),
+      toggleYtEmbedBtn: document.getElementById('toggleYtEmbedBtn'),
+      ytEmbedContainer: document.getElementById('ytEmbedContainer')
+    };
+
+    function showFeedback(message, type = 'info') {
+      if (!dom.feedbackBox) return;
+      dom.feedbackBox.textContent = message;
+      dom.feedbackBox.classList.remove('hidden', 'border-pink-200', 'border-rose-300', 'bg-rose-50/90', 'bg-white/90');
+      if (type === 'error') {
+        dom.feedbackBox.classList.add('border-rose-300', 'bg-rose-50/90');
+      } else {
+        dom.feedbackBox.classList.add('border-pink-200', 'bg-white/90');
+      }
+    }
+
+    /* =====================================================================
+       BUILT-IN PIANO SYNTHESIZER + OPTIONAL YOUTUBE LINK / EMBED (NO ERROR 153)
+       ===================================================================== */
+    // Soft, Lush & Full Grand Piano + Celesta Arrangement in F Major (Warm Felt-Piano Voicing)
+    const HAPPY_BIRTHDAY_PIANO_NOTES = [
+      // Pickup: "Hap-py"
+      { freq: 261.63, harmony: 523.25, beats: 0.72, arpeggio: [174.61, 261.63] },
+      { freq: 261.63, harmony: 523.25, beats: 0.28, arpeggio: [] },
+      // Bar 1 (F Major): "Birth-day to"
+      { freq: 293.66, harmony: 587.33, beats: 1.00, arpeggio: [87.31, 174.61, 220.00, 261.63, 349.23] },
+      { freq: 261.63, harmony: 523.25, beats: 1.00, arpeggio: [174.61, 220.00, 261.63, 349.23] },
+      { freq: 349.23, harmony: 698.46, beats: 1.00, arpeggio: [130.81, 220.00, 261.63, 440.00] },
+      // Bar 2 (C7): "you,"
+      { freq: 329.63, harmony: 659.25, beats: 2.00, arpeggio: [65.41, 130.81, 196.00, 233.08, 261.63, 329.63, 392.00] },
+      // Pickup: "Hap-py"
+      { freq: 261.63, harmony: 523.25, beats: 0.72, arpeggio: [196.00, 261.63] },
+      { freq: 261.63, harmony: 523.25, beats: 0.28, arpeggio: [] },
+      // Bar 3 (C7): "Birth-day to"
+      { freq: 293.66, harmony: 587.33, beats: 1.00, arpeggio: [65.41, 130.81, 196.00, 233.08, 329.63] },
+      { freq: 261.63, harmony: 523.25, beats: 1.00, arpeggio: [130.81, 196.00, 233.08, 329.63] },
+      { freq: 392.00, harmony: 783.99, beats: 1.00, arpeggio: [130.81, 196.00, 261.63, 329.63] },
+      // Bar 4 (F Major): "you,"
+      { freq: 349.23, harmony: 698.46, beats: 2.00, arpeggio: [87.31, 130.81, 174.61, 220.00, 261.63, 349.23, 440.00] },
+      // Pickup: "Hap-py"
+      { freq: 261.63, harmony: 523.25, beats: 0.72, arpeggio: [174.61, 261.63] },
+      { freq: 261.63, harmony: 523.25, beats: 0.28, arpeggio: [] },
+      // Bar 5 (F -> F7): "Birth-day dear"
+      { freq: 523.25, harmony: 1046.50, beats: 1.00, arpeggio: [87.31, 174.61, 220.00, 261.63, 349.23, 440.00] },
+      { freq: 440.00, harmony: 880.00, beats: 1.00, arpeggio: [174.61, 220.00, 261.63, 349.23] },
+      { freq: 349.23, harmony: 698.46, beats: 1.00, arpeggio: [87.31, 155.56, 220.00, 261.63, 349.23] },
+      // Bar 6 (Bb Major): "Ca-ca,"
+      { freq: 329.63, harmony: 659.25, beats: 1.00, arpeggio: [58.27, 116.54, 174.61, 233.08, 293.66, 349.23] },
+      { freq: 293.66, harmony: 587.33, beats: 2.00, arpeggio: [116.54, 174.61, 233.08, 293.66, 349.23, 466.16] },
+      // Pickup: "Hap-py"
+      { freq: 466.16, harmony: 932.33, beats: 0.72, arpeggio: [233.08, 349.23] },
+      { freq: 466.16, harmony: 932.33, beats: 0.28, arpeggio: [] },
+      // Bar 7 (F/C -> C7): "Birth-day to"
+      { freq: 440.00, harmony: 880.00, beats: 1.00, arpeggio: [65.41, 130.81, 174.61, 220.00, 261.63, 349.23] },
+      { freq: 349.23, harmony: 698.46, beats: 1.00, arpeggio: [130.81, 174.61, 220.00, 261.63] },
+      { freq: 392.00, harmony: 783.99, beats: 1.00, arpeggio: [65.41, 130.81, 196.00, 233.08, 329.63] },
+      // Bar 8 (F Major Lush Cadence): "you."
+      { freq: 349.23, harmony: 698.46, beats: 2.75, arpeggio: [87.31, 130.81, 174.61, 220.00, 261.63, 349.23, 440.00, 523.25] }
+    ];
+
+    function updateYouTubePlayUI(isPlaying) {
+      state.ytPlaying = isPlaying;
+      if (isPlaying) {
+        dom.ytPlayIcon.classList.add('hidden');
+        dom.ytPauseIcon.classList.remove('hidden');
+        dom.ytPlayPauseLabel.textContent = 'Pause Piano';
+        dom.musicDisc.classList.add('animate-pulse');
+        dom.ytStatusHint.textContent = 'Sedang memutar aransemen soft felt-piano & celesta Happy Birthday untuk Caca.';
+      } else {
+        dom.ytPlayIcon.classList.remove('hidden');
+        dom.ytPauseIcon.classList.add('hidden');
+        dom.ytPlayPauseLabel.textContent = 'Play Piano';
+        dom.musicDisc.classList.remove('animate-pulse');
+      }
+    }
+
+    function updateYouTubeMuteUI(isMuted) {
+      state.pianoMuted = isMuted;
+      if (isMuted) {
+        dom.ytVolOnIcon.classList.add('hidden');
+        dom.ytVolOffIcon.classList.remove('hidden');
+        dom.ytMuteLabel.textContent = 'Unmute';
+      } else {
+        dom.ytVolOnIcon.classList.remove('hidden');
+        dom.ytVolOffIcon.classList.add('hidden');
+        dom.ytMuteLabel.textContent = 'Mute';
+      }
+      if (state.pianoGain && state.pianoCtx) {
+        const sliderVol = Number(dom.ytVolumeSlider.value) / 100;
+        state.pianoGain.gain.setTargetAtTime(isMuted ? 0 : sliderVol * 0.30, state.pianoCtx.currentTime, 0.03);
+      }
+    }
+
+    function triggerSinglePianoString(freq, startTime, durationSec, peakLevel, voiceType = 'felt') {
+      if (!state.pianoCtx || !state.pianoGain) return;
+
+      const filter = state.pianoCtx.createBiquadFilter();
+      filter.type = 'lowpass';
+
+      if (voiceType === 'bass') {
+        filter.frequency.setValueAtTime(520, startTime);
+        filter.frequency.exponentialRampToValueAtTime(190, startTime + durationSec + 0.9);
+      } else if (voiceType === 'bell') {
+        filter.frequency.setValueAtTime(2200, startTime);
+        filter.frequency.exponentialRampToValueAtTime(920, startTime + durationSec + 0.8);
+      } else {
+        // Soft felt-piano mellow warmth
+        filter.frequency.setValueAtTime(1450, startTime);
+        filter.frequency.exponentialRampToValueAtTime(480, startTime + durationSec + 0.85);
+      }
+
+      const oscMain = state.pianoCtx.createOscillator();
+      const oscDetuned = state.pianoCtx.createOscillator();
+      const oscOctave = state.pianoCtx.createOscillator();
+
+      oscMain.type = 'sine';
+      oscMain.frequency.setValueAtTime(freq, startTime);
+
+      // Gentle chorus detune for rich, lush grand-piano warmth
+      oscDetuned.type = 'triangle';
+      oscDetuned.frequency.setValueAtTime(freq * 1.0018, startTime);
+
+      oscOctave.type = 'sine';
+      oscOctave.frequency.setValueAtTime(freq * 2, startTime);
+
+      const gDetuned = state.pianoCtx.createGain();
+      gDetuned.gain.setValueAtTime(voiceType === 'felt' ? 0.24 : 0.14, startTime);
+
+      const gOctave = state.pianoCtx.createGain();
+      gOctave.gain.setValueAtTime(voiceType === 'bell' ? 0.28 : 0.12, startTime);
+
+      const env = state.pianoCtx.createGain();
+      const attackTime = voiceType === 'bass' ? 0.035 : 0.026;
+      const sustainTail = voiceType === 'bass' ? 1.35 : 1.15;
+
+      env.gain.setValueAtTime(0.0001, startTime);
+      env.gain.linearRampToValueAtTime(peakLevel, startTime + attackTime);
+      env.gain.exponentialRampToValueAtTime(peakLevel * 0.42, startTime + Math.max(0.18, durationSec * 0.55));
+      env.gain.exponentialRampToValueAtTime(0.0001, startTime + durationSec + sustainTail);
+
+      oscMain.connect(env);
+      oscDetuned.connect(gDetuned);
+      gDetuned.connect(env);
+      oscOctave.connect(gOctave);
+      gOctave.connect(env);
+
+      env.connect(filter);
+      filter.connect(state.pianoGain);
+
+      const stopAt = startTime + durationSec + sustainTail + 0.08;
+      oscMain.start(startTime);
+      oscDetuned.start(startTime);
+      oscOctave.start(startTime);
+      oscMain.stop(stopAt);
+      oscDetuned.stop(stopAt);
+      oscOctave.stop(stopAt);
+    }
+
+    function playWarmPianoTone(noteObj, durationSec) {
+      if (!state.pianoCtx || !state.pianoGain) return;
+      const now = state.pianoCtx.currentTime;
+
+      // 1. Main mellow felt-piano melody
+      triggerSinglePianoString(noteObj.freq, now, durationSec, 0.52, 'felt');
+
+      // 2. Soft music-box / celesta octave shimmer on top
+      if (noteObj.harmony) {
+        triggerSinglePianoString(noteObj.harmony, now + 0.012, durationSec * 1.1, 0.20, 'bell');
+      }
+
+      // 3. Rich flowing waltz arpeggio accompaniment (left-hand + inner harmonies)
+      if (Array.isArray(noteObj.arpeggio) && noteObj.arpeggio.length > 0) {
+        noteObj.arpeggio.forEach((chordFreq, idx) => {
+          const strumOffset = idx * 0.055;
+          const isLowBass = chordFreq < 150;
+          const level = isLowBass ? 0.28 : 0.17;
+          triggerSinglePianoString(
+            chordFreq,
+            now + strumOffset,
+            durationSec * 1.25,
+            level,
+            isLowBass ? 'bass' : 'felt'
+          );
+        });
+      }
+    }
+
+    function scheduleNextPianoNote() {
+      if (!state.ytPlaying) return;
+      const note = HAPPY_BIRTHDAY_PIANO_NOTES[state.pianoNoteIdx];
+      const beatSeconds = 0.58;
+      const durationSec = note.beats * beatSeconds;
+
+      playWarmPianoTone(note, durationSec);
+      state.pianoNoteIdx = (state.pianoNoteIdx + 1) % HAPPY_BIRTHDAY_PIANO_NOTES.length;
+
+      state.pianoTimerId = setTimeout(scheduleNextPianoNote, durationSec * 1000);
+    }
+
+    function startBuiltInPiano() {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) {
+        showFeedback('Browser tidak mendukung pemutar piano bawaan.', 'error');
+        return;
+      }
+
+      if (!state.pianoCtx) {
+        state.pianoCtx = new AudioContextClass();
+        state.pianoGain = state.pianoCtx.createGain();
+        const sliderVol = Number(dom.ytVolumeSlider.value) / 100;
+        state.pianoGain.gain.setValueAtTime(state.pianoMuted ? 0 : sliderVol * 0.30, state.pianoCtx.currentTime);
+        state.pianoGain.connect(state.pianoCtx.destination);
+      }
+
+      if (state.pianoCtx.state === 'suspended') {
+        state.pianoCtx.resume();
+      }
+
+      updateYouTubePlayUI(true);
+      scheduleNextPianoNote();
+    }
+
+    function pauseBuiltInPiano() {
+      updateYouTubePlayUI(false);
+      if (state.pianoTimerId) {
+        clearTimeout(state.pianoTimerId);
+        state.pianoTimerId = null;
+      }
+      dom.ytStatusHint.textContent = 'Musik piano dijeda.';
+    }
+
+    function toggleYouTubeEmbedFrame() {
+      state.ytEmbedVisible = !state.ytEmbedVisible;
+      const mount = document.getElementById('ytPlayerMount');
+      if (state.ytEmbedVisible) {
+        dom.ytEmbedContainer.classList.remove('hidden');
+        dom.toggleYtEmbedBtn.textContent = 'Sembunyikan Embed';
+        if (mount && !mount.innerHTML.trim()) {
+          const iframe = document.createElement('iframe');
+          iframe.className = 'w-full h-full border-0';
+          iframe.src = `https://www.youtube.com/embed/${CACA_BIRTHDAY_DATA.youtubePianoVideoId}?rel=0&playsinline=1`;
+          iframe.title = 'Happy Birthday To You - Piano Version';
+          iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+          iframe.allowFullscreen = true;
+          iframe.onerror = () => {
+            if (!state.ytPlaying) {
+              startBuiltInPiano();
+            }
+          };
+          mount.appendChild(iframe);
+        }
+      } else {
+        dom.ytEmbedContainer.classList.add('hidden');
+        dom.toggleYtEmbedBtn.textContent = 'Tampilkan Embed YouTube';
+      }
+    }
+
+    function initYouTubePianoPlayer() {
+      // Ready immediately with zero Error 153 iframe blocking on page load
+    }
+
+    function toggleYouTubePlay() {
+      if (state.ytPlaying) {
+        pauseBuiltInPiano();
+      } else {
+        startBuiltInPiano();
+      }
+    }
+
+    function toggleYouTubeMute() {
+      updateYouTubeMuteUI(!state.pianoMuted);
+    }
+
+    function handleYouTubeVolumeChange() {
+      const vol = Number(dom.ytVolumeSlider.value);
+      dom.ytVolumeValueLabel.textContent = `${vol}%`;
+      if (vol === 0) {
+        updateYouTubeMuteUI(true);
+      } else {
+        updateYouTubeMuteUI(false);
+      }
+    }
+
+    /* =====================================================================
+       CANDLE FLAMES, SMOKE & CELEBRATION
+       ===================================================================== */
+    function updateCandleUI() {
+      const litCount = state.candlesLit.filter(Boolean).length;
+
+      dom.flameBoxes.forEach((flameEl, idx) => {
+        if (state.candlesLit[idx]) {
+          flameEl.classList.remove('blown-out');
+        } else {
+          flameEl.classList.add('blown-out', 'bending');
+          setTimeout(() => flameEl.classList.remove('bending'), 180);
+        }
+      });
+
+      if (litCount === 0) {
+        dom.candleStatusText.textContent = 'Semua Lilin Padam';
+        dom.candleStatusBadge.className =
+          'inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-mint border border-emerald-300 text-emerald-900 text-xs font-semibold';
+        dom.wishCelebrationBanner.classList.remove('hidden');
+        launchConfetti();
+      } else {
+        dom.candleStatusText.textContent = `${litCount} Lilin Menyala`;
+        dom.candleStatusBadge.className =
+          'inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100/90 border border-amber-300 text-amber-900 text-xs font-semibold';
+        dom.wishCelebrationBanner.classList.add('hidden');
+      }
+    }
+
+    function triggerSmokePuff(index) {
+      const wrapper = dom.candleWrappers[index];
+      if (!wrapper) return;
+      wrapper.classList.remove('smoke-active');
+      void wrapper.offsetWidth;
+      wrapper.classList.add('smoke-active');
+    }
+
+    function blowCandles(targetIndex = null) {
+      if (state.isBlowingAnimation) return;
+
+      const indicesToBlow =
+        targetIndex !== null
+          ? (state.candlesLit[targetIndex] ? [targetIndex] : [])
+          : state.candlesLit
+              .map((isLit, idx) => (isLit ? idx : -1))
+              .filter((idx) => idx !== -1);
+
+      if (indicesToBlow.length === 0) {
+        showFeedback('Lilin ulang tahun Caca sudah padam semua. Klik "Nyalakan Lagi" untuk menyalakannya kembali.');
+        return;
+      }
+
+      state.isBlowingAnimation = true;
+
+      indicesToBlow.forEach((idx) => {
+        const flame = dom.flameBoxes[idx];
+        if (flame) flame.classList.add('bending');
+      });
+
+      setTimeout(() => {
+        indicesToBlow.forEach((idx) => {
+          state.candlesLit[idx] = false;
+          triggerSmokePuff(idx);
+        });
+        updateCandleUI();
+        state.isBlowingAnimation = false;
+      }, CACA_BIRTHDAY_DATA.bendDurationMs);
+    }
+
+    function relightCandles(targetIndex = null) {
+      if (targetIndex !== null) {
+        state.candlesLit[targetIndex] = true;
+      } else {
+        state.candlesLit = [true, true, true];
+      }
+      dom.flameBoxes.forEach((flame) => flame.classList.remove('bending'));
+      updateCandleUI();
+      showFeedback('Lilin ulang tahun Caca sudah menyala kembali. Silakan make a wish dan tiup lagi.');
+    }
+
+    /* =====================================================================
+       WEB AUDIO API MICROPHONE BLOW DETECTION
+       ===================================================================== */
+    async function startMicrophoneBlowDetection() {
+      try {
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+          showFeedback('Browser ini belum mendukung akses mikrofon. Gunakan tombol "Tiup Lilin" atau ketuk apinya.', 'error');
+          return;
+        }
+
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) {
+          showFeedback('Web Audio API tidak tersedia di browser ini. Tombol "Tiup Lilin" tetap siap dipakai.', 'error');
+          return;
+        }
+
+        const stream = await navigator.mediaDevices.getUserMedia({
+          audio: {
+            echoCancellation: true,
+            noiseSuppression: true,
+            autoGainControl: true
+          }
+        });
+
+        const audioCtx = new AudioContextClass();
+        if (audioCtx.state === 'suspended') {
+          await audioCtx.resume();
+        }
+
+        const source = audioCtx.createMediaStreamSource(stream);
+        const analyser = audioCtx.createAnalyser();
+        analyser.fftSize = 512;
+        analyser.smoothingTimeConstant = 0.65;
+        source.connect(analyser);
+
+        state.micStream = stream;
+        state.audioCtx = audioCtx;
+        state.analyser = analyser;
+        state.micActive = true;
+
+        dom.micDot.className = 'w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping';
+        dom.micBtnText.textContent = 'Matikan Mic';
+        dom.micToggleBtn.classList.add('border-berry', 'bg-blush/65');
+        dom.micStatusLabel.textContent = 'Mikrofon aktif — tiup ke arah mic untuk memadamkan lilin!';
+        showFeedback('Mikrofon aktif! Tiup ke arah mikrofon atau klik "Tiup Lilin" kapan saja.');
+
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+
+        const monitorVolume = () => {
+          if (!state.micActive || !state.analyser) return;
+
+          state.analyser.getByteFrequencyData(dataArray);
+          let sum = 0;
+          const count = Math.floor(bufferLength * 0.65);
+          for (let i = 0; i < count; i++) {
+            sum += dataArray[i];
+          }
+
+          const normalizedLevel = Math.min(1, (sum / count) / 128);
+          const percent = Math.round(normalizedLevel * 100);
+
+          dom.micLevelBar.style.width = `${percent}%`;
+          dom.micLevelPercent.textContent = `${percent}%`;
+
+          const anyLit = state.candlesLit.some(Boolean);
+          if (anyLit) {
+            dom.flameBoxes.forEach((flame, idx) => {
+              if (!state.candlesLit[idx]) return;
+              if (normalizedLevel >= CACA_BIRTHDAY_DATA.blowThreshold * 0.72) {
+                flame.classList.add('bending');
+              } else if (!state.isBlowingAnimation) {
+                flame.classList.remove('bending');
+              }
+            });
+          }
+
+          if (normalizedLevel >= CACA_BIRTHDAY_DATA.blowThreshold && anyLit && !state.isBlowingAnimation) {
+            blowCandles(null);
+          }
+
+          state.micRafId = requestAnimationFrame(monitorVolume);
+        };
+
+        monitorVolume();
+      } catch (err) {
+        stopMicrophoneBlowDetection(false);
+        showFeedback(
+          'Izin mikrofon tidak diberikan atau perangkat tidak tersedia. Kamu tetap bisa meniup lilin dengan tombol "Tiup Lilin" atau ketuk apinya.',
+          'error'
+        );
+      }
+    }
+
+    function stopMicrophoneBlowDetection(showNotice = true) {
+      state.micActive = false;
+
+      if (state.micRafId) {
+        cancelAnimationFrame(state.micRafId);
+        state.micRafId = null;
+      }
+
+      if (state.micStream) {
+        state.micStream.getTracks().forEach((track) => track.stop());
+        state.micStream = null;
+      }
+
+      if (state.audioCtx) {
+        state.audioCtx.close().catch(() => {});
+        state.audioCtx = null;
+      }
+
+      state.analyser = null;
+      dom.micLevelBar.style.width = '0%';
+      dom.micLevelPercent.textContent = '0%';
+      dom.micDot.className = 'w-2.5 h-2.5 rounded-full bg-berry/50';
+      dom.micBtnText.textContent = 'Aktifkan Tiup Mic';
+      dom.micToggleBtn.classList.remove('border-berry', 'bg-blush/65');
+      dom.micStatusLabel.textContent = 'Blow Meter: Siap mendeteksi tiupan saat mikrofon diaktifkan';
+      dom.flameBoxes.forEach((flame) => flame.classList.remove('bending'));
+
+      if (showNotice) {
+        showFeedback('Mikrofon dimatikan. Tombol "Tiup Lilin" dan ketuk lilin tetap aktif.');
+      }
+    }
+
+    /* =====================================================================
+       CONFETTI BURST ENGINE
+       ===================================================================== */
+    function resizeConfettiCanvas() {
+      if (!dom.confettiCanvas) return;
+      dom.confettiCanvas.width = window.innerWidth;
+      dom.confettiCanvas.height = window.innerHeight;
+    }
+
+    function launchConfetti() {
+      resizeConfettiCanvas();
+      const colors = ['#FF7EA6', '#FFC4D8', '#FACC15', '#9BF6FF', '#BDB2FF', '#CAFFBF'];
+      const batch = [];
+
+      for (let i = 0; i < 115; i++) {
+        batch.push({
+          x: Math.random() * dom.confettiCanvas.width,
+          y: -20 - Math.random() * 180,
+          w: 7 + Math.random() * 7,
+          h: 5 + Math.random() * 6,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          vx: (Math.random() - 0.5) * 4.2,
+          vy: 2.3 + Math.random() * 3.8,
+          rotation: Math.random() * Math.PI * 2,
+          vRot: (Math.random() - 0.5) * 0.16,
+          opacity: 1
+        });
+      }
+
+      state.confettiParticles.push(...batch);
+
+      if (!state.confettiRafId) {
+        renderConfetti();
+      }
+    }
+
+    function renderConfetti() {
+      const ctx = dom.confettiCanvas.getContext('2d');
+      if (!ctx) return;
+
+      ctx.clearRect(0, 0, dom.confettiCanvas.width, dom.confettiCanvas.height);
+
+      state.confettiParticles.forEach((p) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.rotation += p.vRot;
+        if (p.y > dom.confettiCanvas.height * 0.82) {
+          p.opacity -= 0.025;
+        }
+
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, p.opacity);
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rotation);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      });
+
+      state.confettiParticles = state.confettiParticles.filter(
+        (p) => p.opacity > 0 && p.y < dom.confettiCanvas.height + 40
+      );
+
+      if (state.confettiParticles.length > 0) {
+        state.confettiRafId = requestAnimationFrame(renderConfetti);
+      } else {
+        state.confettiRafId = null;
+      }
+    }
+
+    /* =====================================================================
+       SINGLE WISH, CARMEN H2H PORTRAIT & SCROLLABLE FULL WISH MODAL
+       ===================================================================== */
+    async function resolvePinterestOrFallbackPhoto(imgEl, pinUrl, fallbackUrls) {
+      const candidates = [...fallbackUrls];
+
+      try {
+        const res = await fetch(`https://api.microlink.io?url=${encodeURIComponent(pinUrl)}`);
+        if (res.ok) {
+          const payload = await res.json();
+          const extractedUrl = payload?.data?.image?.url;
+          if (extractedUrl && typeof extractedUrl === 'string') {
+            candidates.unshift(extractedUrl);
+          }
+        }
+      } catch (_err) {
+        // Fallback to verified portrait URL if cross-origin lookup is blocked
+      }
+
+      let attempt = 0;
+      imgEl.onerror = () => {
+        attempt += 1;
+        if (attempt < candidates.length) {
+          imgEl.src = candidates[attempt];
+        } else {
+          imgEl.classList.add('hidden');
+          if (dom.cacaPortraitFallback) {
+            dom.cacaPortraitFallback.classList.remove('hidden');
+          }
+        }
+      };
+
+      imgEl.src = candidates[0];
+    }
+
+    function initSingleWishAndPortrait() {
+      const wish = CACA_BIRTHDAY_DATA.wish;
+      dom.wishCardTitle.textContent = wish.title;
+      dom.wishCardExcerpt.textContent = wish.excerpt;
+      dom.wishSignatureText.textContent = wish.signature;
+
+      const chipStyles = ['bg-blush/85 text-berry', 'bg-amber-100/90 text-amber-900', 'bg-lavender/85 text-cocoa'];
+      dom.wishHighlightsRow.innerHTML = '';
+      wish.highlights.forEach((item, i) => {
+        const badge = document.createElement('span');
+        badge.className = `px-3 py-1 rounded-full text-xs font-bold ${chipStyles[i % chipStyles.length]}`;
+        badge.textContent = item;
+        dom.wishHighlightsRow.appendChild(badge);
+      });
+
+      if (dom.cacaPortraitImg) {
+        resolvePinterestOrFallbackPhoto(
+          dom.cacaPortraitImg,
+          CACA_BIRTHDAY_DATA.pinterestPinUrl,
+          CACA_BIRTHDAY_DATA.carmenPhotoUrls
+        );
+      }
+    }
+
+    function openFullWishModal() {
+      const wish = CACA_BIRTHDAY_DATA.wish;
+      if (!wish) return;
+
+      dom.modalWishHeading.textContent = wish.title;
+      dom.modalWishBody.textContent = wish.fullLetter;
+      dom.modalWishAuthor.textContent = wish.signature;
+
+      dom.modalWishBadges.innerHTML = '';
+      wish.highlights.forEach((item) => {
+        const span = document.createElement('span');
+        span.className = 'px-3 py-1 rounded-full bg-blush/85 text-berry text-xs font-bold';
+        span.textContent = item;
+        dom.modalWishBadges.appendChild(span);
+      });
+
+      dom.fullWishModal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+      if (dom.modalWishScrollArea) {
+        dom.modalWishScrollArea.scrollTop = 0;
+      }
+      dom.closeFullWishBtn.focus();
+    }
+
+    function closeFullWishModal() {
+      dom.fullWishModal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+      dom.openFullWishBtn.focus();
+    }
+
+    /* =====================================================================
+       EVENT LISTENERS & INITIALIZATION
+       ===================================================================== */
+    function bindEvents() {
+      dom.blowBtn.addEventListener('click', () => blowCandles(null));
+      dom.relightBtn.addEventListener('click', () => relightCandles(null));
+
+      dom.candleWrappers.forEach((wrapper, idx) => {
+        const toggleCandle = () => {
+          if (state.candlesLit[idx]) {
+            blowCandles(idx);
+          } else {
+            relightCandles(idx);
+          }
+        };
+        wrapper.addEventListener('click', toggleCandle);
+        wrapper.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleCandle();
+          }
+        });
+      });
+
+      dom.micToggleBtn.addEventListener('click', () => {
+        if (state.micActive) {
+          stopMicrophoneBlowDetection(true);
+        } else {
+          startMicrophoneBlowDetection();
+        }
+      });
+
+      // Full wish modal
+      dom.openFullWishBtn.addEventListener('click', openFullWishModal);
+      dom.closeFullWishBtn.addEventListener('click', closeFullWishModal);
+      dom.doneFullWishBtn.addEventListener('click', closeFullWishModal);
+      dom.fullWishModal.addEventListener('click', (e) => {
+        if (e.target === dom.fullWishModal) closeFullWishModal();
+      });
+
+      // Escape key closes modal
+      document.addEventListener('keydown', (e) => {
+        const isWishModalOpen = !dom.fullWishModal.classList.contains('hidden');
+        if (e.key === 'Escape' && isWishModalOpen) {
+          closeFullWishModal();
+        }
+      });
+
+      // YouTube Piano controls
+      dom.ytPlayPauseBtn.addEventListener('click', toggleYouTubePlay);
+      dom.ytMuteBtn.addEventListener('click', toggleYouTubeMute);
+      dom.ytVolumeSlider.addEventListener('input', handleYouTubeVolumeChange);
+      if (dom.toggleYtEmbedBtn) {
+        dom.toggleYtEmbedBtn.addEventListener('click', toggleYouTubeEmbedFrame);
+      }
+
+      window.addEventListener('resize', resizeConfettiCanvas);
+      window.addEventListener('beforeunload', () => {
+        pauseBuiltInPiano();
+        stopMicrophoneBlowDetection(false);
+      });
+    }
+
+    function initApp() {
+      resizeConfettiCanvas();
+      initSingleWishAndPortrait();
+      updateCandleUI();
+      initYouTubePianoPlayer();
+      bindEvents();
+    }
+
+    window.addEventListener('DOMContentLoaded', initApp);
+  </script>
+</body>
+</html>
